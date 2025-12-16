@@ -8,8 +8,37 @@ import { RocketModel3D } from "@/components/RocketModel3D";
 import { GLTFViewer } from "@/components/GLTFViewer";
 import { getProjectById } from "@/data/projects";
 import type { AnyProject, ProjectType, TeamProject } from "@/data/projects";
+import SkillBadge from "@/components/SkillBadge";
+import { cn } from "@/lib/utils";
 
 const isTeamProject = (project: AnyProject): project is TeamProject => project.type === "team";
+
+const DetailList = ({ items, accentClass }: { items: string[]; accentClass: string }) => (
+  <ul className="space-y-3" role="list">
+    {items.map((item, index) => (
+      <li
+        key={index}
+        className="group relative overflow-hidden rounded-2xl border border-white/5 bg-gradient-to-r from-gray-800/80 via-gray-800/60 to-gray-900/80 px-3 py-3 sm:px-4 sm:py-4 shadow-[0_12px_30px_rgba(0,0,0,0.35)]"
+      >
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-white/5 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          aria-hidden="true"
+        ></div>
+        <div className="flex items-start gap-3">
+          <span
+            className={cn(
+              "mt-1 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border text-[11px] font-semibold uppercase tracking-tight",
+              accentClass
+            )}
+          >
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <p className="text-gray-200 leading-relaxed">{item}</p>
+        </div>
+      </li>
+    ))}
+  </ul>
+);
 
 class ErrorBoundary extends React.Component<
   { children: React.ReactNode },
@@ -117,9 +146,7 @@ const ProjectDetail = () => {
               
               <div className="flex flex-wrap gap-2">
                 {project.skills.map((skill) => (
-                  <Badge key={skill} variant="secondary" className="bg-gray-700 text-gray-300">
-                    {skill}
-                  </Badge>
+                  <SkillBadge key={skill} skill={skill} size="sm" tone="blue" />
                 ))}
               </div>
             </div>
@@ -192,14 +219,7 @@ const ProjectDetail = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3">
-                  {detail.purpose.map((item, index) => (
-                    <li key={index} className="text-gray-300 leading-relaxed flex items-start">
-                      <span className="text-blue-400 mr-3 flex-shrink-0">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                <DetailList items={detail.purpose} accentClass="text-blue-200 border-blue-400/50 bg-blue-500/10" />
               </CardContent>
             </Card>
 
@@ -212,14 +232,10 @@ const ProjectDetail = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3">
-                  {detail.development.map((item, index) => (
-                    <li key={index} className="text-gray-300 leading-relaxed flex items-start">
-                      <span className="text-green-400 mr-3 flex-shrink-0">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                <DetailList
+                  items={detail.development}
+                  accentClass="text-green-200 border-green-400/50 bg-green-500/10"
+                />
               </CardContent>
             </Card>
 
@@ -232,14 +248,10 @@ const ProjectDetail = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3">
-                  {detail.documentation.map((item, index) => (
-                    <li key={index} className="text-gray-300 leading-relaxed flex items-start">
-                      <span className="text-purple-400 mr-3 flex-shrink-0">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                <DetailList
+                  items={detail.documentation}
+                  accentClass="text-purple-200 border-purple-400/50 bg-purple-500/10"
+                />
               </CardContent>
             </Card>
 
@@ -252,14 +264,10 @@ const ProjectDetail = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3">
-                  {detail.results.map((item, index) => (
-                    <li key={index} className="text-gray-300 leading-relaxed flex items-start">
-                      <span className="text-orange-400 mr-3 flex-shrink-0">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                <DetailList
+                  items={detail.results}
+                  accentClass="text-orange-200 border-orange-400/50 bg-orange-500/10"
+                />
               </CardContent>
             </Card>
           </div>
@@ -275,14 +283,10 @@ const ProjectDetail = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3">
-                  {detail.futurePlans.map((item, index) => (
-                    <li key={index} className="text-gray-300 leading-relaxed flex items-start">
-                      <span className="text-yellow-400 mr-3 flex-shrink-0">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                <DetailList
+                  items={detail.futurePlans}
+                  accentClass="text-yellow-200 border-yellow-400/50 bg-yellow-500/10"
+                />
               </CardContent>
             </Card>
 
@@ -296,14 +300,10 @@ const ProjectDetail = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-3">
-                    {teamProject.detail.myRole.map((item, index) => (
-                      <li key={index} className="text-gray-300 leading-relaxed flex items-start">
-                        <span className="text-cyan-400 mr-3 flex-shrink-0">•</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <DetailList
+                    items={teamProject.detail.myRole}
+                    accentClass="text-cyan-200 border-cyan-400/50 bg-cyan-500/10"
+                  />
                 </CardContent>
               </Card>
             )}

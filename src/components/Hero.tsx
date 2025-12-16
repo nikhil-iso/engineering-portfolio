@@ -70,7 +70,7 @@ const Hero = () => {
 
         <div className="flex justify-center space-x-6 mt-6 mb-4 animate-fade-in-up [animation-delay:1s] opacity-0 [animation-fill-mode:forwards]">
           <a 
-            href="https://github.com/ISoSpitefull" 
+            href="https://github.com/Nikhil-ISo" 
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-blue-400 transition-all duration-500 hover:scale-125 transform group relative"

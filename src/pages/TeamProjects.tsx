@@ -1,10 +1,10 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Users, Award, Code, User } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { featuredTeamProject, teamProjects } from "@/data/projects";
 import type { TeamProject } from "@/data/projects";
+import SkillBadge from "@/components/SkillBadge";
 
 const TeamProjects = () => {
   const navigate = useNavigate();
@@ -105,14 +105,15 @@ const TeamProjects = () => {
                         <p className="text-xs sm:text-sm text-gray-400">Key Technologies</p>
                         <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-1">
                           {highlightedProject.skills.slice(0, 3).map((skill) => (
-                            <Badge key={skill} variant="secondary" className="bg-purple-900 text-purple-200 text-xs sm:text-sm py-0.5">
-                              {skill}
-                            </Badge>
+                            <SkillBadge key={skill} skill={skill} size="sm" tone="purple" />
                           ))}
                           {highlightedProject.skills.length > 3 && (
-                            <Badge variant="secondary" className="bg-gray-700 text-gray-300 text-xs sm:text-sm py-0.5">
-                              +{highlightedProject.skills.length - 3} more
-                            </Badge>
+                            <SkillBadge
+                              skill={`+${highlightedProject.skills.length - 3} more`}
+                              size="sm"
+                              tone="neutral"
+                              className="text-gray-200"
+                            />
                           )}
                         </div>
                       </div>
@@ -190,9 +191,7 @@ const TeamProjects = () => {
                     <h4 className="font-semibold text-white text-xs sm:text-sm">Technologies Used</h4>
                     <div className="flex flex-wrap gap-1.5 sm:gap-2">
                       {project.skills.map((skill) => (
-                        <Badge key={skill} variant="secondary" className="bg-blue-900 text-blue-200 text-xs py-0.5">
-                          {skill}
-                        </Badge>
+                        <SkillBadge key={skill} skill={skill} size="sm" tone="blue" />
                       ))}
                     </div>
                   </div>

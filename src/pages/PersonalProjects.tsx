@@ -1,11 +1,11 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Code, Lightbulb, Target, Image } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import useScrollAnimation from "@/hooks/useScrollAnimation";
 import { personalProjects } from "@/data/projects";
 import type { PersonalProject } from "@/data/projects";
+import SkillBadge from "@/components/SkillBadge";
 
 const PersonalProjects = () => {
   const navigate = useNavigate();
@@ -36,9 +36,7 @@ const PersonalProjects = () => {
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {project.skills.map((skill) => (
-                    <Badge key={skill} variant="secondary" className="bg-blue-900 text-blue-200">
-                      {skill}
-                    </Badge>
+                    <SkillBadge key={skill} skill={skill} tone="blue" />
                   ))}
                 </div>
               </div>
@@ -82,9 +80,7 @@ const PersonalProjects = () => {
               <h4 className="font-semibold text-white">Relevant Skills</h4>
               <div className="flex flex-wrap gap-2">
                 {project.skills.map((skill) => (
-                  <Badge key={skill} variant="secondary" className="bg-green-900 text-green-200">
-                    {skill}
-                  </Badge>
+                  <SkillBadge key={skill} skill={skill} tone="green" />
                 ))}
               </div>
             </div>
@@ -132,9 +128,7 @@ const PersonalProjects = () => {
         <CardContent className="space-y-3 pt-3">
           <div className="flex flex-wrap gap-1">
             {project.skills.map((skill) => (
-              <Badge key={skill} variant="secondary" className="bg-orange-900 text-orange-200 text-xs">
-                {skill}
-              </Badge>
+              <SkillBadge key={skill} skill={skill} size="sm" tone="orange" />
             ))}
           </div>
           <div className="space-y-2">
