@@ -218,10 +218,11 @@ const ContactSection = ({ compactTop = false }: ContactSectionProps) => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-sm sm:text-base">Email</h3>
-                  <p 
+                  <p
                     className="text-blue-100 text-sm sm:text-base hover:text-white transition-colors duration-300"
                     dangerouslySetInnerHTML={{
-                      __html: "<a href='mail&#116;o&#58;n%&#54;9kh%6&#57;l&#46;p&#97;%74%&#54;&#53;l&#46;230&#53;&#50;&#64;&#37;67&#109;a&#37;69l&#46;&#99;&#111;&#37;6D' class='hover:underline'>&#110;&#105;khil&#46;p&#97;tel&#46;2&#51;05&#50;&#64;gmail&#46;com</a>"
+                      __html:
+                        "<a href='mail&#116;o&#58;&#110;&#105;&#107;&#104;&#105;&#108;&#46;&#112;&#97;&#116;&#101;&#108;&#64;&#117;&#115;&#97;&#115;&#107;&#46;&#99;&#97;' class='hover:underline'>&#110;&#105;&#107;&#104;&#105;&#108;&#46;&#112;&#97;&#116;&#101;&#108;&#64;&#117;&#115;&#97;&#115;&#107;&#46;&#99;&#97;</a>",
                     }}
                   />
                 </div>
