@@ -88,7 +88,7 @@ const Hero = () => {
             <div className="absolute inset-0 bg-blue-400/20 rounded-full scale-0 group-hover:scale-150 transition-transform duration-500 blur-md"></div>
           </a>
           <a 
-            href="mailto:nikhil.patel.23052@gmail.com" 
+            href="mailto:nikhil.patel@usask.ca.com" 
             className="text-gray-400 hover:text-blue-400 transition-all duration-500 hover:scale-125 transform group relative"
           >
             <Mail className="h-6 sm:h-8 w-6 sm:w-8 transition-all duration-300 group-hover:drop-shadow-lg group-hover:drop-shadow-blue-400/50" />
