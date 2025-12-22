@@ -245,9 +245,15 @@ const ContactSection = ({ compactTop = false }: ContactSectionProps) => {
               <p className="text-xs sm:text-sm text-gray-300 mb-4 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
                 Currently seeking internships, co-op positions, and collaborative projects in Electrical engineering and Mechatronics technology.
               </p>
-              <Button variant="outline" className="w-full border-green-400 text-green-400 hover:bg-green-400 hover:text-gray-900 text-sm sm:text-base py-2 sm:py-2.5 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-green-400/25 group/btn relative overflow-hidden">
-                <span className="relative z-10">Download Resume</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-green-400/20 to-blue-400/20 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
+              <Button
+                asChild
+                variant="outline"
+                className="w-full border-green-400 text-green-400 hover:bg-green-400 hover:text-gray-900 text-sm sm:text-base py-2 sm:py-2.5 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-green-400/25 group/btn relative overflow-hidden"
+              >
+                <a href="/website_resume.pdf" download target="_blank" rel="noopener noreferrer">
+                  <span className="relative z-10">Download Resume</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-green-400/20 to-blue-400/20 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
+                </a>
               </Button>
             </CardContent>
           </Card>
