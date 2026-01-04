@@ -79,7 +79,7 @@ const Hero = () => {
             <div className="absolute inset-0 bg-blue-400/20 rounded-full scale-0 group-hover:scale-150 transition-transform duration-500 blur-md"></div>
           </a>
           <a 
-            href="https://www.linkedin.com/in/nikhil-p-ba1581281/" 
+            href="https://www.linkedin.com/in/nikhil-patel-ba1581281/" 
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-blue-400 transition-all duration-500 hover:scale-125 transform group relative"
